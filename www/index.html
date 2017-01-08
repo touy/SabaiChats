@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+   <script src="controller/app.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+<body ng-controller="AppController">
+ <ons-navigator var="myNavigator">
+   <ons-page>
+<h2  style="text-align: center; margin-top: 30%; color:orange"><b>Sabai Chats</b></h2>
+
+  <div style="text-align: center; margin-top: 15%;">
+    <p>
+      <ons-input   id="username" modifier="underbar" placeholder="Username" float ng-model="page.username"></ons-input>
+    </p>
+    <br/>
+    <p>
+      <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float ng-model="page.password"></ons-input>
+    </p>
+    <p style="margin-top: 60px;">
+      <ons-button ng-click="login(page)">Sign in</ons-button>
+      <ons-button ng-click="myNavigator.pushPage('signup.html', {data: {title: 'ລົງທະບຽນ'}});">Sign up</ons-button>
+    </p>
+    
+  </div>
+    </ons-page>
+ </ons-navigator>
+
+<ons-template id="signup.html">
+  <ons-page>
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Back</ons-back-button></div>
+      <div class="center">{{myNavigator.topPage.data.title}}</div>
+    </ons-toolbar>  
+
+  <div style="text-align: center; margin-top: 13%;">
+
+  
+        <div ng-click="getPhoto();" >
+        <img  style="border-radius: 50px;-webkit-border-radius: 50px;-moz-border-radius: 50px;width:150px;height:150px;" id="picture1" src="images/contact.png"  /> 
+       <center> <img  style="display:none;border-radius: 50px;-webkit-border-radius: 50px;-moz-border-radius: 50px;width:150px;height:150px;" id="picture" src=""  /></center></div>
+</div>
+  <div style="text-align: center; margin-top: 15%;">
+
+ 
+
+    <p>
+      <ons-input   id="username" modifier="underbar" placeholder="ຊື່ແລະນາມສະກຸນ" float ng-model="Register.name"></ons-input>
+    </p>
+       
+    <p>
+      <ons-input id="password" modifier="underbar"  placeholder="ຜູ້ໃຊ້" float ng-model="Register.user"></ons-input>
+    </p>
+    
+     <p>
+      <ons-input id="password" modifier="underbar" type="password" placeholder="ລະຫັດ" float ng-model="Register.password"></ons-input>
+    </p>
+    
+     <p>
+      <ons-input id="password" modifier="underbar" type="tel" placeholder="ເບີໂທ" float ng-model="Register.tel"></ons-input>
+    </p>
+    
+    
+    
+    <p style="margin-top: 60px;">
+      <ons-button ng-click="Register(Register)">Register</ons-button>
+     
+    </p>
+    
+  </div>
+
+
+  </ons-page>
+</ons-template>
+
+
+
+</body>
+</html>
